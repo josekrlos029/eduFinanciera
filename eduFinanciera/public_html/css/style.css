@@ -33,11 +33,25 @@ border-bottom:2px solid #1C4372;
 background-color:#E62239;
 border-bottom:2px solid #AF192F;
 }
+.fondoGris{
+background:#EFEFEF;
+}
+
+
 #img{
 margin-bottom:20px;
 text-align:center;
 }
-
+#imgIns{
+margin-top:60px;
+margin-bottom:20px;
+text-align:left;
+float:left
+}
+#imgIns img{
+    width:70px;
+    height: 70px;
+}
 #img img{
     width:60px;
     height: 60px;
@@ -65,4 +79,32 @@ border-bottom: 8px solid #295385;
 border-bottom-radius:5px;
 margin-top:10px;
 margin-bottom:10px;
+}
+.preguntaEvaluacion{
+height:60px;
+padding-top:10px;
+text-align:center;
+font-family: 'iconFont',Arial,Arial Narrow, sans-serif;
+font-size:16px;
+margin-bottom:10px;
+border-radius:8px;
+border-bottom: 1px solid #D1D1D1;
+background-color:#FFFFFF;
+font-weight: bold;
+}
+
+.mensajes{
+margin-left:60px;
+margin-top:-10px;
+width:60%;
+border-radius:8px;
+background:#929293;
+color:#FFFFFF;
+text-align:center;
+padding-top:4px;
+}
+.mensajes div{
+background:url(../img/msg.png) left bottom no-repeat;
+padding-top:4px;
+height:50px;
 }
