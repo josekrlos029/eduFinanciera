@@ -32,7 +32,7 @@
                         .done(function(msg) {
                             var i;
                             for (i = 0; i < msg.d.length; i++) {
-                                categorias.push(msg.d[i].idcategoria);
+                                categorias.push(msg.d[i].idcategoria+","+msg.d[i].categoria);
                             }
                             listarCategorias(array_unique(categorias));
                         });
@@ -53,32 +53,32 @@
                     if(j==1){
                         msj+="<tr>";
                     }
-                    
-                    switch (categorias[i]) {
+                    var res = categorias[i].split(",");
+                    switch (res[0]) {
 
-                        case "1":
-                                msj+='<td><div id="img"><img onclick="temas(1)" src="img/ahorro.png" /></div></td>';
+                        case "1":  
+                                msj+='<td><div id="img"><img onclick="temas('+res[0]+')" src="img/ahorro.png" /><br><span>'+res[1]+'</span></div></td>';
                             break;
                         case "2":
-                                msj+='<td><div id="img"><img onclick="temas(2)" src="img/canalesDeAtencion.png" /></div></td>';
+                                msj+='<td><div id="img"><img onclick="temas('+res[0]+')" src="img/canalesDeAtencion.png" /><br><span>'+res[1]+'</span></div></td>';
                             break;
                         case "3":
-                                msj+='<td><div id="img"><img onclick="temas(3)" src="img/credito.png" /></div></td>';
+                                msj+='<td><div id="img"><img onclick="temas('+res[0]+')" src="img/credito.png" /><br><span>'+res[1]+'</span></div></td>';
                             break;
                         case "4":
-                                msj+='<td><div id="img"><img onclick="temas(4)" src="img/derechosYDeberes.png" /></div></td>';
+                                msj+='<td><div id="img"><img onclick="temas('+res[0]+')" src="img/derechosYDeberes.png" /><br><span>'+res[1]+'</span></div></td>';
                             break;
                         case "5":
-                                msj+='<td><div id="img"><img onclick="temas(5)" src="img/fiducia.png" /></div></td>';
+                                msj+='<td><div id="img"><img onclick="temas('+res[0]+')" src="img/fiducia.png" /><br><span>'+res[1]+'</span></div></td>';
                             break;
                         case "6":
-                                msj+='<td><div id="img"><img onclick="temas(6)" src="img/fondoDeInversionColectiva.png" /></div></td>';
+                                msj+='<td><div id="img"><img onclick="temas('+res[0]+')" src="img/fondoDeInversionColectiva.png" /><br><span>'+res[1]+'</span></div></td>';
                             break;
                         case "7":
-                                msj+='<td><div id="img"><img onclick="temas(7)" src="img/organismosDeVigilanciaYControl.png" /></div></td>';
+                                msj+='<td><div id="img"><img onclick="temas('+res[0]+')" src="img/organismosDeVigilanciaYControl.png" /><br><span>'+res[1]+'</span></div></td>';
                             break;
                         case "8":
-                                msj+='<td><div id="img"><img onclick="temas(8)" src="img/presupuesto.png" /></div></td>';
+                                msj+='<td><div id="img"><img onclick="temas('+res[0]+')" src="img/presupuesto.png" /><br><span>'+res[1]+'</span></div></td>';
                             break;    
                     }
                     if(j==3 || i==categorias.length-1){
@@ -107,6 +107,7 @@
                     }
                     return arrUnique;
                 }
+                
                 else {
                     return arr;
                 }
