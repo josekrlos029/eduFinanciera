@@ -38,16 +38,20 @@ and open the template in the editor.
     // PhoneGap is ready
     //
     function onDeviceReady() {
-        var db = window.openDatabase("db", "1.0", "date", 200000);
         
-        if(db.DATABASE_ERR != null){
-            alert("No existe");
+        var existe = localStorage.getItem('db');
+        if(existe == null || existe == ""){
+            crearBd();
         }else{
             alert("existe");
         }
         
         
         //db.transaction(populateDB, errorCB, successCB);
+    }
+    
+    function crearBd(){
+        var db = window.openDatabase("db", "1.0", "date", 200000);
     }
 
     // Populate the database 
