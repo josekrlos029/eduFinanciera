@@ -21,31 +21,20 @@ and open the template in the editor.
 
                 $.ajax({
                     type: "POST",
+                    dataType: 'jsonp',
                     url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idtema=25&$format=json",
                     data: ""
                 })
                         .done(function(msg) {
 
-                            var json = eval("(" + msg + ")");
-                            alert(json);
-                        }).fail(function( jqXHR, textStatus ) {
-  alert( "Request failed: " + textStatus );});
-/*
 
-                $.getJSON("http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idtema=25&$format=json", function(data) {
+           });
 
-                    $.each(data, function(key, val) {
-                        //items.push( "<li id='" + key + "'>" + val + "</li>" );
-                        alert("Key: " + key + ", Val: " + val);
-                    });
-
-                });
-*/
-        }
+            }
 
         </script>
     </head>
     <body>
-        <div id="carga">TODO write content</div>
+        <div></div>
     </body>
 </html>
