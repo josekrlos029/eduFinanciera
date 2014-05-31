@@ -19,7 +19,7 @@ and open the template in the editor.
             });
             function obtenerJson() {
 
-                $.ajax({
+/*                $.ajax({
                     type: "POST",
                     url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idtema=25&$format=json",
                     data: ""
@@ -29,9 +29,9 @@ and open the template in the editor.
                             var json = eval("(" + msg + ")");
                             alert(json);
                         });
+*/
 
-
-           /*     $.getJSON("http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idtema=25&$format=json", function(data) {
+                $.getJSON("http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idtema=25&$format=json", function(data) {
 
                     $.each(data, function(key, val) {
                         //items.push( "<li id='" + key + "'>" + val + "</li>" );
@@ -39,7 +39,7 @@ and open the template in the editor.
                     });
 
                 });
-*/
+
         }
 
         </script>
