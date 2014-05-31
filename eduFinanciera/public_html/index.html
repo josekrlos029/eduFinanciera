@@ -46,7 +46,7 @@
             function listarCategorias(categorias) {
                 var i;
                 var j = 0;
-                
+                var m = "";
                 for (i = 0; i < categorias.length; i++) {
                     var msj = "";
                     j++;
@@ -86,9 +86,10 @@
                         j=0;
                     }
                    
-                    $("#tablaCat").append(msj);
+                    m+=msj;
+                    
                 }
-
+                $("#tablaCat").append(m);
             }
 
             function array_unique(arr) {

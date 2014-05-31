@@ -8,37 +8,128 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Selecciona tu tema de interes</title>
+        <title>Area de preguntas</title>
         <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
         <link href="css/cuadricula.css" rel="stylesheet" type="text/css">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="css/botones.css" rel="stylesheet" type="text/css" media="screen"/>
- <script src="js/respond.min.js"></script>
-<script  src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-        
-   
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="css/botones.css" rel="stylesheet" type="text/css" media="screen"/>
+        <script src="js/respond.min.js"></script>
+        <script  src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript" charset="utf-8">
+            var actual, array, correcta;
+            $(window).ready(function() {
+                var idTema = localStorage.getItem('idTema');
+                obtenerPreguntas(idTema);
+            });
+            
+            function elegir (pos){
+                
+                if (pos == correcta){
+                    alert("correcta");
+                }else{
+                    alert("incorrecta");
+                }
+            }
+
+            function obtenerPreguntas(idTema) {
+
+                $.ajax({
+                    type: "POST",
+                    dataType: 'jsonp',
+                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idTema=" + 15 + "&$format=json",
+                    data: ""
+                })
+                        .done(function(msg) {
+                            array = msg;
+                            //$(".cabecera").text(msg.d[0].categoria.toUpperCase());
+                            actual = 0;
+
+                            mostrarPregunta(actual);
+                            
+                        });
+
+            }
+            function mostrarPregunta(preg) {
+                
+                $(".preguntaEvaluacion").text(array.d[preg].terminopregunta);
+
+                $.ajax({
+                    type: "POST",
+                    dataType: 'jsonp',
+                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$format=json",
+                    data: ""
+                })
+                        .done(function(msg) {
+                            
+                            var resp = new Array();
+                            var pos = Math.floor((Math.random() * 4) + 1);
+                            
+                            for (var i = 1; i <= 4; i++) {
+                                if (pos === i) {
+                                    if (array.d[preg].a.length > 25) {
+                                        $("#op" + i).text(array.d[preg].a);
+                                    } else if (array.d[preg].b.length > 25) {
+                                        $("#op" + i).text(array.d[preg].b);
+                                    } else if (array.d[preg].c.length > 25) {
+                                        $("#op" + i).text(array.d[preg].c);
+                                    } else if (array.d[preg].d.length > 25) {
+                                        $("#op" + i).text(array.d[preg].d);
+                                    }
+                                    resp.push(preg);
+                                    
+                                    correcta = i;
+                                } else {
+                                    
+                                    var pv = Math.floor((Math.random() * msg.d.length) + 1);
+                                    
+                                    if (msg.d[pv].a.length > 25) {
+                                        $("#op" + i).text(msg.d[pv].a);
+                                    } else if (msg.d[pv].b.length > 25) {
+                                        $("#op" + i).text(msg.d[pv].b);
+                                    } else if (msg.d[pv].c.length > 25) {
+                                        $("#op" + i).text(msg.d[pv].c);
+                                    } else if (msg.d[pv].d.length > 25) {
+                                        $("#op" + i).text(msg.d[pv].d);
+                                    }
+                                    resp.push(pv);
+
+
+                                }
+
+                            }
+
+                        });
+
+
+
+            }
+
+
+        </script>       
+
     </head>
     <body class="fondoGris" >
         <div class="cabecera" id="cabeceraRed">Evaluacion de Ahorro</div>
         <div class="gridContainer clearfix">
             <div id="LayoutDiv1">
-            <div class="preguntaEvaluacion">¿Cual es la mejor Forma Ahorrar?										            </div>
-         </div>
-		
-               <div id="LayoutDiv2">
-                <button class="button large gris">Opcion 1</button>
-                <button class="button large gris">Opcion 2</button>
-                <button class="button large gris">Opcion 3</button>
-                <button class="button large gris">Opcion 4</button>
-                </div>
-                <div id="LayoutDiv3">
+                <div class="preguntaEvaluacion"></div>
+            </div>
+
+            <div id="LayoutDiv2">
+                <button class="button large gris" id="op1" onclick="elegir(1)"></button>
+                <button class="button large gris" id="op2" onclick="elegir(2)"></button>
+                <button class="button large gris" id="op4" onclick="elegir(3)"></button>
+                <button class="button large gris" id="op3" onclick="elegir(4)"></button>
+            </div>
+            <div id="LayoutDiv3">
                 <button class="">1 de 5</button>
-                </div>		
-         
+            </div>		
+
+        </div>
 
 
-      
-       
+
 
     </body>
 </html>
