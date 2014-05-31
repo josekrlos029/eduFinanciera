@@ -20,9 +20,9 @@
         <script type="text/javascript" charset="utf-8">
 
         document.addEventListener("deviceready", function(){        
-        
+        alert(1);
           var pushNotification = window.plugins.pushNotification;
-          
+        alert(2);  
           if ( device.platform == 'android' || device.platform == 'Android' )
             {
                 
@@ -60,7 +60,7 @@
     
     function onNotificationGCM(e) {
         //$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-
+alert(3);  
         switch( e.event )
         {
         case 'registered':
