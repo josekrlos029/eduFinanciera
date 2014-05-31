@@ -9,26 +9,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Selecciona tu tema de interes</title>
-        <link href="boilerplate.css" rel="stylesheet" type="text/css">
-        <link href="cuadricula.css" rel="stylesheet" type="text/css">
-        <!-- 
-        Para obtener más información sobre los comentarios condicionales situados alrededor de las etiquetas html en la parte superior del archivo:
-        paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-          
-        Haga lo siguiente si usa su compilación personalizada de modernizr (http://www.modernizr.com/):
-        * inserte el vínculo del código js aquí
-        * elimine el vínculo situado debajo para html5shiv
-        * añada la clase "no-js" a las etiquetas html en la parte superior
-        * también puede eliminar el vínculo con respond.min.js si ha incluido MQ Polyfill en su compilación de modernizr 
-        -->
-        <!--[if lt IE 9]>
-        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <script src="respond.min.js"></script>
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
-        <link href="css/botones.css" rel="stylesheet" type="text/css" media="screen"/>
-        <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script type="text/javascript" charset="utf-8">
+        <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+        <link href="css/cuadricula.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="css/botones.css" rel="stylesheet" type="text/css" media="screen"/>
+ <script src="js/respond.min.js"></script>
+<script  src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+        
+    
+ <script type="text/javascript" charset="utf-8">
 
             $(window).ready(function() {
                 var idCategoria = localStorage.getItem('idCategoria');
@@ -53,12 +42,11 @@
         </script>
     </head>
     <body>
-        <div id="cabecera">AHORRO</div>
+        <div class="cabecera" id="cabeceraAzul">AHORRO</div>
         <div class="gridContainer clearfix">
-
             <div id="LayoutDiv1">
                 <div id="img">
-                    <img src="img/ahorro.png" ></img>
+                    <img src="img/ahorro.png" > </img>
                 </div>
             </div>
             <div id="LayoutDiv2">
