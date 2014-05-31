@@ -79,5 +79,26 @@ function confirmarRegistro(persona) {
             });
 }
 
+function array_unique(arr) {
+
+                if (arr.length > 1) {
+
+                    var arr = arr.sort();
+                    var arrUnique = new Array(arr[0]);
+                    for (i = 1; i < arr.length; i++) {
+                        if (arr[i] != arrUnique[arrUnique.length - 1]) {
+
+                            arrUnique.push(arr[i]);
+                        }
+
+                    }
+                    return arrUnique;
+                }
+                
+                else {
+                    return arr;
+                }
+            }
+
 
 

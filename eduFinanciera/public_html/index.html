@@ -116,17 +116,17 @@
                 var grupo = localStorage.getItem('grupo');
                 
                 if(idFace == null || idFace == ""){
-                    obtenerCategorias();
+                    //Colocar Logueo
                     
                 }else{
-                    
-                    
-                    
+                    //QUitar logueo
                 }
                 
                 
                 if (grupo == null || grupo == ""){
                     location.href = 'edades.html';
+                }else{
+                    obtenerCategorias();
                 }
                 
                 
@@ -135,10 +135,11 @@
             });
             function obtenerCategorias() {
                 var categorias = new Array();
+                 var grupo = localStorage.getItem('grupo');
                 $.ajax({
                     type: "POST",
                     dataType: 'jsonp',
-                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$format=json",
+                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idgrupodeinteres="+grupo+"$format=json",
                     data: ""
                 })
                         .done(function(msg) {
@@ -202,27 +203,6 @@
                     
                 }
                 $("#tablaCat").append(m);
-            }
-
-            function array_unique(arr) {
-
-                if (arr.length > 1) {
-
-                    var arr = arr.sort();
-                    var arrUnique = new Array(arr[0]);
-                    for (i = 1; i < arr.length; i++) {
-                        if (arr[i] != arrUnique[arrUnique.length - 1]) {
-
-                            arrUnique.push(arr[i]);
-                        }
-
-                    }
-                    return arrUnique;
-                }
-                
-                else {
-                    return arr;
-                }
             }
 
         </script>
