@@ -1,0 +1,36 @@
+
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Documento sin título</title>
+        <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+        <link href="css/cuadricula.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="css/botones.css" rel="stylesheet" type="text/css" media="screen"/>
+        <script src="js/respond.min.js"></script>
+        <script  src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script>
+            function guardar(grupo){
+                
+                localStorage.setItem('grupo', grupo);
+                location.href='index.html';
+            }
+        </script>
+        <div class="cabecera" id="cabeceraVerdé">NOMBRE DE LA APLICACION</div>
+        <div class="gridContainer clearfix">
+        <div id="titleEres"><h2>Eres?</h2></div>
+        <div>
+            <button class="button large orange" onclick="guardar('niño')">Niño o Joven</button>
+            <button class="button large gris" onclick="guardar('Adulto')">Adulto</button>
+        </div>
+        <div id="btnFace">
+        	<button class="button large blue">Ingresa con facebook!</button>
+        </div>
+        
