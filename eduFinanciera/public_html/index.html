@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <!--<script src="phonegap.js" type="text/javascript"></script>-->
+        <!--<script type="text/javascript" charset="utf-8" src="PushNotification.js"></script>-->
+        <script type="text/javascript" charset="utf-8">
+
+            $(window).ready(function() {
+                obtenerJson();
+            });
+            function obtenerJson() {
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idtema=25&$format=json",
+                    data: ""
+                })
+                        .done(function(msg) {
+
+                            var json = eval("(" + msg + ")");
+                            alert(json);
+                        });
+
+
+           /*     $.getJSON("http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idtema=25&$format=json", function(data) {
+
+                    $.each(data, function(key, val) {
+                        //items.push( "<li id='" + key + "'>" + val + "</li>" );
+                        alert("Key: " + key + ", Val: " + val);
+                    });
+
+                });
+*/
+        }
+
+        </script>
+    </head>
+    <body>
+        <div id="carga">TODO write content</div>
+    </body>
+</html>
