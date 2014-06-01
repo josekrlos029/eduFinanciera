@@ -102,6 +102,7 @@ text-align:center;
 font-family: 'iconFont',Arial,Arial Narrow, sans-serif;
 font-size:16px;
 margin-bottom:10px;
+height: auto;
 }
 .tablero{
 	font-size:14px;
@@ -114,7 +115,7 @@ margin-bottom:10px;
 background-color:#89c0c7;
 }
 .preguntaEvaluacion{
-height:60px;
+height:auto;
 padding-top:10px;
 text-align:center;
 font-family: 'iconFont',Arial,Arial Narrow, sans-serif;
