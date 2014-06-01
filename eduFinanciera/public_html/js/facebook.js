@@ -14,7 +14,7 @@ function facebook(){
 //DAtos de inicio de la APi
 window.fbAsyncInit = function() {
     FB.init({
-        appId: '411903142258993',
+        appId: '690291331037841',
         status: true, // check login status
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true  // parse XFBML
