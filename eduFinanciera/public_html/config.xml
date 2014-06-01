@@ -4,7 +4,7 @@
         id		= "com.NimbleDevelopment.eduFinanciera"
         version 	= "1.0.0">
 
-    <name>Educación Financiera</name>
+    <name>FINANZAGRO</name>
 
     <description>
         ...
@@ -31,10 +31,10 @@
     <icon src="icono.png" width="48" height="48" />
     <icon src="icono.png" width="36" height="36" />
 
-    <gap:splash src="splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="img/splash/splash.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="img/splash/splash.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="img/splash/splash.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="img/splash/splash.png" gap:platform="android" gap:density="xhdpi" />
 
     <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.1.1" />
     <gap:plugin name="org.apache.cordova.device" />

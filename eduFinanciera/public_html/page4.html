@@ -51,11 +51,18 @@
                 if(actual==preguntas.d.length){
 					 $('#resultado').show(1000);
 					 $('#overlay').show(1000);
+                                         var por = (correctas/preguntas.d.length)*100;
+                                         if(por >= 50){
+                                             $('#resultado').text("Has obtenido el "+por+"%... Ganaste 5 puntos !")
+                                         }else{
+                                             $('#resultado').text("Has obtenido el "+por+"%... Perdiste !")
+                                         }
 					  setTimeout(function(){
 					  $('#resultado').hide(1000);
 					 $('#overlay').hide(1000);
-					 },2000);
-                   alert((correctas/preguntas.d.length)*100 +"%");
+                                         location.href= 'page2.html'
+					 },3000);
+                   
                 }else{
                     mostrarPregunta();
                 }
