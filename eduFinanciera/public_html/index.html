@@ -22,17 +22,17 @@
         <!-- facebook js sdk -->
         <script src="facebook-js-sdk.js"></script>
         <script type="text/javascript" charset="utf-8">
-             FB.Event.subscribe('auth.login', function(response) {
+             /*FB.Event.subscribe('auth.login', function(response) {
                                if(response.authResponse){
                                    alert(",,");
                                }
                                });
                 
-                             
+               */              
 //Se obtienen los datos del Usuario
                 function getUserInfo() {
                     FB.api('/me', function(response) {
-                        alert(4);
+                        
                         var regId = localStorage.getItem('regid');
                         var persona = {idFace: response.id,
                             nombres: response.first_name,
@@ -128,7 +128,7 @@
             }, true);
 
             function successHandler(result) {
-                alert('result = ' + result);
+                //alert('result = ' + result);
             }
 
             function errorHandler(error) {
@@ -143,7 +143,7 @@
                     case 'registered':
                         if (e.regid.length > 0)
                         {
-
+                            alert(e.regid);
                             localStorage.setItem('regid', e.regid);
                         }
                         break;
