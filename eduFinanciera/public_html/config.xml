@@ -25,11 +25,11 @@
         <gap:platform name="ios" />
     </gap:platforms>
 
-    <icon src="icono.png" gap:role="default" />
-    <icon src="icono.png" width="96" height="96" />
-    <icon src="icono.png" width="72" height="72" />
-    <icon src="icono.png" width="48" height="48" />
-    <icon src="icono.png" width="36" height="36" />
+    <icon src="img/icono/icono.png" gap:role="default" />
+    <icon src="img/icono/icono.png" width="96" height="96" />
+    <icon src="img/icono/icono.png" width="72" height="72" />
+    <icon src="img/icono/icono.png" width="48" height="48" />
+    <icon src="img/icono/icono.png" width="36" height="36" />
 
     <gap:splash src="img/splash/splash.png" gap:platform="android" gap:density="ldpi" />
     <gap:splash src="img/splash/splash.png" gap:platform="android" gap:density="mdpi" />
