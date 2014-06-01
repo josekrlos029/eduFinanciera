@@ -31,12 +31,29 @@
 
             function elegir(pos) {
                 if (pos == 'correcta') {
-                    alert("correcta");
+                    $('#correcto').show(1000);
+					 $('#overlay').show(1000);
+					  setTimeout(function(){
+					  $('#correcto').hide(1000);
+					 $('#overlay').hide(1000);
+					 },2000);
+					  
                     correctas++;
                 } else {
-                    alert("incorrecta");
+                  $('#incorrecto').show(1000);
+					 $('#overlay').show(1000);
+					  setTimeout(function(){
+					  $('#incorrecto').hide(1000);
+					 $('#overlay').hide(1000);
+					 },2000);
                 }
                 if(actual==preguntas.d.length){
+					 $('#resultado').show(1000);
+					 $('#overlay').show(1000);
+					  setTimeout(function(){
+					  $('#resultado').hide(1000);
+					 $('#overlay').hide(1000);
+					 },2000);
                    alert((correctas/preguntas.d.length)*100 +"%");
                 }else{
                     mostrarPregunta();
@@ -134,6 +151,11 @@
 
         </div>
 
+
+            <div id="correcto"></div>
+            <div id="incorrecto"></div>
+          <div id="overlay"></div>
+          <div id="resultado"></div>
 
 
 

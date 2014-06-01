@@ -53,9 +53,6 @@
                     actual++;
                     $("#progressbar").val(((actual -1 )/array.d.length)*100);
                 } else {
-		   document.getElementById('overlay').style.display = 'block';
-            document.getElementById('mensaje').style.display = 'block';
-			          
                     alert("Terminó");
                     $("#progressbar").val(100);
                     location.href= 'page4.html';
@@ -70,22 +67,19 @@
     </head>
     <body>
 
-<div  id="overlay"></div>
-            <div  id="mensaje">
-              <div style="float:right">
-                  <a href = "javascript:void(0)" onclick = "document.getElementById('mensaje').style.display='none';document.getElementById('overlay').style.display='none'"><img src="../utiles/image/close.png"/></a>
-             </div>
-                
-            </div>
+
 
     <div class="cabecera" id="cabeceraAzul"></div>
         <div class="gridContainer clearfix">
             <div id="LayoutDiv1">
                 <div class="titulo"></div>
             </div>
+            
             <div id="LayoutDiv1">
+            
+           
                 <div id="img2"><img src="img/idea.png" /></div>
-            </div>
+          </div>
             <div id="LayoutDiv3">
                 <div class="pregunta"></div>
                 <div class="tablero">
