@@ -55,12 +55,13 @@
 
             });
 
+            
             function obtenerTemas(idCategoria) {
-
+                var grupo = localStorage.getItem('grupo');
                 $.ajax({
                     type: "POST",
                     dataType: 'jsonp',
-                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idcategoria=" + idCategoria + "&$format=json",
+                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=%22idcategoria%22=" + idCategoria + "AND%22idgrupodeinteres%22=" + grupo + "&$format=json",
                     data: ""
                 })
                         .done(function(msg) {
