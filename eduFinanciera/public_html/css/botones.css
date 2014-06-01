@@ -86,9 +86,29 @@ border-bottom: 4px solid #E62727 }
 }
 .orange.button:hover{ background-color: #D45500; }
 
-.blue.button, .blue.button:visited { background-color: #4c6eff;
-border-bottom: 4px solid #0089e1;  }
-.blue.button:hover{ background-color: #0089e1; }
+.blue.button, .blue.button:visited { 
+background-color: #4c6eff;
+border-bottom: 4px solid #0089e1;  
+}
+.blue.button:hover{ 
+background-color: #0089e1; 
+}
+
+.blueClaro.button, .blue.button:visited { 
+background-color: #8BA6FC;
+border-bottom: 4px solid #0089e1;  
+}
+.blueClaro.button:hover{ 
+background-color: #0089e1; 
+}
+
+.blueClaroo.button, .blue.button:visited { 
+background-color: #A1B7FF;
+border-bottom: 4px solid #8BA6FC;  
+}
+.blueClaroo.button:hover{ 
+background-color: #8BA6FC; 
+}
 
 .yellow.button, .yellow.button:visited { background-color: #FFB515; }
 .yellow.button:hover{ background-color: #FC9200; }

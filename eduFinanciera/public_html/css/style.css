@@ -1,28 +1,28 @@
-@font-face {
-    font-family: 'GROBOLD.ttf';
-    src: url('../fonts/iconFont.eot');
-    src: url('../fonts/iconFont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/iconFont.woff') format('woff'),
-         url('../fonts/GROBOLD.ttf') format('truetype'),
-         url('../fonts/iconFont.svg#iconFont') format('svg');
-    font-weight: normal;
-    font-style: normal;
+
+
+@font-face { 
+font-family: "iconFont";
+src: url('../fonts/iconFont.ttf')format('truetype');
 }
-
-
+body{
+font-family:'Myriad Hebrew',Arial;
+background-color:#EFEFEF;	
+}
 .cabecera{
+text-transform: uppercase;
 widht:100%;
 padding-top:10px;
 padding-bottom:10px;
 color:#FFFFFF;
 font-size:18px;
 text-align:center;
-font-family: 'GROBOLD',Arial Narrow, sans-serif;
+font-family: 'Myriad Hebrew',Arial Narrow, sans-serif;
+font-weight:bold;
 margin-bottom:20px;
 letter-spacing: 2px;
 }
 #cabeceraVerdé{
-background-color:#87c23d;
+background-color:#FCBE31;
 border-bottom:4px solid #789E3B;	
 }
 #cabeceraAzul{
@@ -42,6 +42,13 @@ background:#EFEFEF;
 margin-bottom:20px;
 text-align:center;
 }
+#img img{
+    width:70px;
+    height: 70px;
+}
+
+
+
 #imgIns{
 margin-top:60px;
 margin-bottom:20px;
@@ -52,13 +59,10 @@ float:left
     width:70px;
     height: 70px;
 }
-#img img{
-    width:70px;
-    height: 70px;
-}
+
 #img span{
 text-align:center;
-font-family: 'iconFont',Arial,Arial Narrow, sans-serif;
+font-family: 'Myriad Hebrew',Arial,Arial Narrow, sans-serif;
 font-size:12px;
 margin-bottom:10px;
 color:#224466;
@@ -85,7 +89,7 @@ text-align:center;
 
 .titulo{
 text-align:center;
-font-family: 'iconFont',Arial,Arial Narrow, sans-serif;
+font-family: 'Myriad Hebrew',Arial,Arial Narrow, sans-serif;
 font-size:22px;
 margin-bottom:30px;
 color:#224466;
@@ -97,6 +101,7 @@ font-size:16px;
 margin-bottom:10px;
 }
 .tablero{
+	font-size:12px;
 padding:5px;
 text-align:center;
 border-bottom: 2px solid #6a999f;
@@ -150,9 +155,7 @@ progress {
    -moz-border-radius: 5px;
    -webkit-border-radius: 5px;
    border-radius: 5px;
-   -moz-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
-   -webkit-box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444;
-   box-shadow: 0 1px 5px #000 inset, 0 1px 0 #444; 
+  
 }
 
 progress { 
@@ -166,4 +169,49 @@ progress::-webkit-progress-value {
 } 
 progress::-moz-progress-bar { 
     /* style rules */ 
+}
+
+.destacados{
+padding:15px;	
+margin-top:20px;
+text-align:center;
+background-color:#6AC7E4;
+}
+
+.puesto{
+margin-top:15px;
+
+}
+
+
+
+.imagePerfil{
+margin-left:20px;
+width:60px;
+height:60px;
+border-radius:70px;
+background-color:#AFAFAF;
+}
+
+.nombreRanking{
+vertical-align:text-center;
+width:60%;
+}
+
+.moneda{
+margin-top:15px;
+width:30px;
+height:30px;
+}
+
+.puntaje{
+color:#999999;
+vertical-align:text-center;
+}
+
+#o{
+	font-size:18px;
+	font-weight:bold;
+margin:10px;
+text-align:center;	
 }
