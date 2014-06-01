@@ -53,7 +53,15 @@
                     actual++;
                     $("#progressbar").val(((actual -1 )/array.d.length)*100);
                 } else {
+					
+					 $('#termino').show(1000);
+					 $('#overlay').show(1000);
+					  setTimeout(function(){
+					  $('#termino').hide(1000);
+					 $('#overlay').hide(1000);
+					 },3000);
                     alert("Terminó");
+					
                     $("#progressbar").val(100);
                     location.href= 'page4.html';
                 }
@@ -90,6 +98,10 @@
                 <button class="button large orange" onclick="mostrarPregunta()">Siguiente</button>
             </div>
 
+<div id="termino">La leccion Terminò! 
+<br>Ahora demostraras lo aprendido 
+</div>
+<div id="overlay"></div>
 
             <div id="LayoutDiv4">
                 <progress id="progressbar" value="0" max="100"></progress>
