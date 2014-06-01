@@ -33,6 +33,7 @@
                 function facebook() {
                     FB.login(
                             function(response) {
+                                alert(":,");
                                 if (response.authResponse)
                                 {
                                     getUserInfo(); // Get User Information.
