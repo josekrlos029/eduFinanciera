@@ -72,6 +72,17 @@ text-align:center;
     width:100px;
     height: 100px;
 }
+#logo{
+margin-top:20px;
+margin-bottom:40px;
+text-align:center;
+}
+#logo img{
+    width:150px;
+    height:150px;
+}
+
+
 .titulo{
 text-align:center;
 font-family: 'iconFont',Arial,Arial Narrow, sans-serif;
