@@ -33,13 +33,14 @@
                 function facebook() {
                     FB.login(
                             function(response) {
-                                if (response.session) {
-                                    alert('logged in');
-                                } else {
-                                    alert('not logged in');
+                                if (response.authResponse)
+                                {
+                                    getUserInfo(); // Get User Information.
+                                } else
+                                {
+                                    alert('Error al entrar con facebook, intentalo nuevamente, Recuerda: "No publicaremos nada a tu nombre"');
                                 }
-                            },
-                            {scope: "email"}
+                            }, {scope: 'email,publish_actions'}
                     );
                 }
 //Se obtienen los datos del Usuario
