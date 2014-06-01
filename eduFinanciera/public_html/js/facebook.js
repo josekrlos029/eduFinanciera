@@ -8,7 +8,7 @@
  * Se activa cuando selecciinan la opción conectarse a Face
  */
 function facebook() {
-    alert(1);
+    
     Login();
 }
 
@@ -38,8 +38,7 @@ window.fbAsyncInit = function() {
 
 //SE especifican los datos que se necesitan del usuario (scope)
 function Login()
-{
-    alert(3);
+{    
     FB.login(function(response) {
         if (response.authResponse)
         {
@@ -54,10 +53,7 @@ function Login()
 //Se obtienen los datos del Usuario
 function getUserInfo() {
     FB.api('/me', function(response) {
-
-        //getPhoto();
-        //publicar();
-        alert(4);
+       alert(4);
         var regId = localStorage.getItem('regid');
         var persona = {idFace: response.id,
             nombres: response.first_name,
