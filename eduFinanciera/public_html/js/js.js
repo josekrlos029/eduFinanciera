@@ -26,6 +26,24 @@ function array_unique(arr) {
                 }
             }
 
-
-
-
+function calcular_edad(dia_nacim,mes_nacim,anio_nacim)
+{
+    fecha_hoy = new Date();
+    ahora_anio = fecha_hoy.getYear();
+    ahora_mes = fecha_hoy.getMonth();
+    ahora_dia = fecha_hoy.getDate();
+    edad = (ahora_anio + 1900) - anio_nacim;
+    if ( ahora_mes < (mes_nacim - 1))
+    {
+      edad--;
+    }
+    if (((mes_nacim - 1) == ahora_mes) && (ahora_dia < dia_nacim))
+    { 
+      edad--;
+    }
+    if (edad > 1900)
+    {
+    edad -= 1900;
+    }
+  return edad;
+}

@@ -21,141 +21,139 @@
         <script src="phonegap.js"></script>
         <script type="text/javascript" charset="utf-8">
 
-        document.addEventListener("deviceready", function(){        
-        alert(1);
-          var pushNotification = window.plugins.pushNotification;
-        alert(2);  
-          if ( device.platform == 'android' || device.platform == 'Android' )
-            {
-                
-                pushNotification.register(
-                    successHandler,
-                    errorHandler, {
-                        "senderID":"745427093313",
-                        "ecb":"onNotificationGCM"
-                    });
-            }
-            else
-            {
-                
-                pushNotification.register(
-                    tokenHandler,
-                    errorHandler, {
-                        "badge":"true",
-                        "sound":"true",
-                        "alert":"true",
-                        "ecb":"onNotificationAPN"
-                    });
-            }
-          
-          
-          
-         }, true);
-         
-    function successHandler (result) {
-    alert('result = ' + result);
-    }
-    
-    function errorHandler (error) {
-    alert('error = ' + error);
-    }
-    
-    function onNotificationGCM(e) {
-        //$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-alert(3);  
-        switch( e.event )
-        {
-        case 'registered':
-            if ( e.regid.length > 0 )
-            {
-                //$("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
-                // Your GCM push server needs to know the regID before it can push to this device
-                // here is where you might want to send it the regID for later use.
-                //console.log("regID = " + e.regid);
-                localStorage.setItem('regid', e.regid);
-            }
-        break;
+            document.addEventListener("deviceready", function() {
 
-        case 'message':
-            // if this flag is set, this notification happened while we were in the foreground.
-            // you might want to play a sound to get the user's attention, throw up a dialog, etc.
-            if ( e.foreground )
-            {
-                //$("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
+                var pushNotification = window.plugins.pushNotification;
 
-                // if the notification contains a soundname, play it.
-                //var my_media = new Media("/android_asset/www/"+e.soundname);
-                //my_media.play();
-            }
-            else
-            {  // otherwise we were launched because the user touched a notification in the notification tray.
-                if ( e.coldstart )
+                if (device.platform == 'android' || device.platform == 'Android')
                 {
-                   // $("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
+
+                    pushNotification.register(
+                            successHandler,
+                            errorHandler, {
+                                "senderID": "745427093313",
+                                "ecb": "onNotificationGCM"
+                            });
                 }
                 else
                 {
-                   // $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
+
+                    pushNotification.register(
+                            tokenHandler,
+                            errorHandler, {
+                                "badge": "true",
+                                "sound": "true",
+                                "alert": "true",
+                                "ecb": "onNotificationAPN"
+                            });
                 }
+
+
+
+            }, true);
+
+            function successHandler(result) {
+                alert('result = ' + result);
             }
 
-           // $("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
-           // $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
-        break;
+            function errorHandler(error) {
+                alert('error = ' + error);
+            }
 
-        case 'error':
-           // $("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
-        break;
+            function onNotificationGCM(e) {
+                //$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
 
-        default:
-            //$("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
-        break;
-      }
-    }
+                switch (e.event)
+                {
+                    case 'registered':
+                        if (e.regid.length > 0)
+                        {
+                            //$("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
+                            // Your GCM push server needs to know the regID before it can push to this device
+                            // here is where you might want to send it the regID for later use.
+                            //console.log("regID = " + e.regid);
+                            localStorage.setItem('regid', e.regid);
+                        }
+                        break;
+
+                    case 'message':
+                        // if this flag is set, this notification happened while we were in the foreground.
+                        // you might want to play a sound to get the user's attention, throw up a dialog, etc.
+                        if (e.foreground)
+                        {
+                            //$("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
+
+                            // if the notification contains a soundname, play it.
+                            //var my_media = new Media("/android_asset/www/"+e.soundname);
+                            //my_media.play();
+                        }
+                        else
+                        {  // otherwise we were launched because the user touched a notification in the notification tray.
+                            if (e.coldstart)
+                            {
+                                // $("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
+                            }
+                            else
+                            {
+                                // $("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
+                            }
+                        }
+
+                        // $("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
+                        // $("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
+                        break;
+
+                    case 'error':
+                        // $("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
+                        break;
+
+                    default:
+                        //$("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
+                        break;
+                }
+            }
 
             $(window).ready(function() {
                 var idFace = localStorage.getItem('idFace');
                 var grupo = localStorage.getItem('grupo');
-                
-                if(idFace == null || idFace == ""){
+
+                if (idFace == null || idFace == "") {
                     //Colocar Logueo
                     
-                }else{
+                } else {
                     //QUitar logueo
+                    $("#face").hide()
                 }
-                
-                
-                if (grupo == null || grupo == ""){
+
+
+                if (grupo == null || grupo == "") {
                     location.href = 'edades.html';
-                }else{
+                } else {
                     obtenerCategorias();
                 }
-                
-                
-                
-                
+
             });
             function obtenerCategorias() {
                 var categorias = new Array();
-                 var grupo = localStorage.getItem('grupo');
-                 
+                var grupo = localStorage.getItem('grupo');
+
                 $.ajax({
                     type: "POST",
                     dataType: 'jsonp',
-                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idgrupodeinteres="+grupo+"&$format=json",
+                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idgrupodeinteres=" + grupo + "&$format=json",
                     data: ""
                 })
                         .done(function(msg) {
                             var i;
                             for (i = 0; i < msg.d.length; i++) {
-                                categorias.push(msg.d[i].idcategoria+","+msg.d[i].categoria);
+                                categorias.push(msg.d[i].idcategoria + "," + msg.d[i].categoria);
                             }
                             listarCategorias(array_unique(categorias));
                         });
             }
-            
-            function temas(idCategoria){
-                localStorage.setItem('idCategoria',idCategoria);
+
+            function temas(idCategoria) {
+                localStorage.setItem('idCategoria', idCategoria);
                 window.location.href = "page2.html";
             }
 
@@ -166,44 +164,44 @@ alert(3);
                 for (i = 0; i < categorias.length; i++) {
                     var msj = "";
                     j++;
-                    if(j==1){
-                        msj+="<tr>";
+                    if (j == 1) {
+                        msj += "<tr>";
                     }
                     var res = categorias[i].split(",");
                     switch (res[0]) {
 
-                        case "1":  
-                                msj+='<td width="50%"><div id="img"><img onclick="temas('+res[0]+')" src="img/ahorro.png" /><br><span>'+res[1]+'</span></div></td>';
+                        case "1":
+                            msj += '<td width="50%"><div id="img"><img onclick="temas(' + res[0] + ')" src="img/ahorro.png" /><br><span>' + res[1] + '</span></div></td>';
                             break;
                         case "2":
-                                msj+='<td width="50%"><div id="img"><img onclick="temas('+res[0]+')" src="img/canalesDeAtencion.png" /><br><span>'+res[1]+'</span></div></td>';
+                            msj += '<td width="50%"><div id="img"><img onclick="temas(' + res[0] + ')" src="img/canalesDeAtencion.png" /><br><span>' + res[1] + '</span></div></td>';
                             break;
                         case "3":
-                                msj+='<td width="50%"><div id="img"><img onclick="temas('+res[0]+')" src="img/credito.png" /><br><span>'+res[1]+'</span></div></td>';
+                            msj += '<td width="50%"><div id="img"><img onclick="temas(' + res[0] + ')" src="img/credito.png" /><br><span>' + res[1] + '</span></div></td>';
                             break;
                         case "4":
-                                msj+='<td width="50%"><div id="img"><img onclick="temas('+res[0]+')" src="img/derechosYDeberes.png" /><br><span>'+res[1]+'</span></div></td>';
+                            msj += '<td width="50%"><div id="img"><img onclick="temas(' + res[0] + ')" src="img/derechosYDeberes.png" /><br><span>' + res[1] + '</span></div></td>';
                             break;
                         case "5":
-                                msj+='<td width="50%"><div id="img"><img onclick="temas('+res[0]+')" src="img/fiducia.png" /><br><span>'+res[1]+'</span></div></td>';
+                            msj += '<td width="50%"><div id="img"><img onclick="temas(' + res[0] + ')" src="img/fiducia.png" /><br><span>' + res[1] + '</span></div></td>';
                             break;
                         case "6":
-                                msj+='<td width="50%"><div id="img"><img onclick="temas('+res[0]+')" src="img/fondoDeInversionColectiva.png" /><br><span>'+res[1]+'</span></div></td>';
+                            msj += '<td width="50%"><div id="img"><img onclick="temas(' + res[0] + ')" src="img/fondoDeInversionColectiva.png" /><br><span>' + res[1] + '</span></div></td>';
                             break;
                         case "7":
-                                msj+='<td width="50%"><div id="img"><img onclick="temas('+res[0]+')" src="img/organismosDeVigilanciaYControl.png" /><br><span>'+res[1]+'</span></div></td>';
+                            msj += '<td width="50%"><div id="img"><img onclick="temas(' + res[0] + ')" src="img/organismosDeVigilanciaYControl.png" /><br><span>' + res[1] + '</span></div></td>';
                             break;
                         case "8":
-                                msj+='<td width="50%"><div id="img"><img onclick="temas('+res[0]+')" src="img/presupuesto.png" /><br><span>'+res[1]+'</span></div></td>';
-                            break;    
+                            msj += '<td width="50%"><div id="img"><img onclick="temas(' + res[0] + ')" src="img/presupuesto.png" /><br><span>' + res[1] + '</span></div></td>';
+                            break;
                     }
-                    if(j==2 || i==categorias.length-1){
-                        msj+="</tr>";
-                        j=0;
+                    if (j == 2 || i == categorias.length - 1) {
+                        msj += "</tr>";
+                        j = 0;
                     }
-                   
-                    m+=msj;
-                    
+
+                    m += msj;
+
                 }
                 $("#tablaCat").append(m);
             }
@@ -216,13 +214,13 @@ alert(3);
 
             <div id="LayoutDiv1">
                 <table id="tablaCat" align="center" width="80%" border="0">
-                    
+
                 </table>
 
             </div>
             <div id="btnFace">
-                <button class="button large blue" onclick="facebook()">Conectate con facebook!</button>
-        	</div>
+                <button class="button large blue" id="face" onclick="facebook()">Conectate con facebook!</button>
+            </div>
         </div>
     </body>
 </html>
