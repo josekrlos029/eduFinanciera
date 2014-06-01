@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true  // parse XFBML
     });
-alert("ok");
+alert("ok1");
 };
 // Load the SDK asynchronously
 //carga el SDK de Face
@@ -33,7 +33,7 @@ alert("ok");
     js.async = true;
     js.src = "//connect.facebook.net/es_ES/all.js";
     ref.parentNode.insertBefore(js, ref);
-    alert("ok");
+    alert("ok2");
 
 }(document));
 
