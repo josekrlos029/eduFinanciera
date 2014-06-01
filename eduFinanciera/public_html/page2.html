@@ -94,7 +94,12 @@
                 localStorage.setItem('idTema',idTema);
                 window.location.href = "page3.html";
             }
-
+ function mostrarCuentanos() {
+location.href= 'cuentanos.html';
+                }
+     function mostrarConoce() {
+location.href= 'conoce.html';
+                }            
 
         </script>
     </head>
@@ -112,6 +117,13 @@
 
 
         </div>
-
+ <div id="conoce">       
+<table width="90%" align="center" >
+<tr>
+<td width="50%"> <button class="button large blueClaro" onclick="mostrarCuentanos()">Cuentanos tu Experciencia</button></td>
+<td> <button class="button large blueClaro" onclick="mostrarConoce()">Conoce la experiencia de otros</button></td>
+</tr>
+</table>
+</div>
     </body>
 </html>
