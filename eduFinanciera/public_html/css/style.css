@@ -49,7 +49,7 @@ text-align:center;
 
 #img :active{
 -webkit-transform:
- scale(0.6);
+ scale(0.9);
  }
 
 
@@ -106,7 +106,7 @@ font-size:16px;
 margin-bottom:10px;
 }
 .tablero{
-	font-size:12px;
+	font-size:14px;
 padding:5px;
 text-align:center;
 border-bottom: 2px solid #6a999f;
@@ -203,6 +203,10 @@ vertical-align:text-center;
 width:60%;
 }
 
+.trRanking{
+border-bottom:1px solid #999999;
+}
+
 .moneda{
 margin-top:15px;
 width:30px;
@@ -219,4 +223,56 @@ vertical-align:text-center;
 	font-weight:bold;
 margin:10px;
 text-align:center;	
+}
+progress[value] {
+/* Eliminamos la apariencia por defecto */
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+/* Quitamos el borde que aparece en Firefox */
+border: none;
+
+/* Aplicamos las dimensiones */
+width: 100%;
+height: 25px;
+
+/* Aplicamos color a la barra */
+color: blue;
+}
+
+/* Compatibilidad de color en Firefox y Chrome */
+progress::-moz-progress-bar { background: #0063a6; }
+progress::-webkit-progress-value { background: #0063a6; }
+
+.overlay{
+     display: none;
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: #000;
+     z-index:1001;
+     opacity:.90;
+     -moz-opacity: 0.90;
+     filter: alpha(opacity=90);
+}
+
+.modal {
+     display: none;
+     position: absolute;
+     top: 22%;
+     left: 0%;
+     width: 60%;
+     height: 55%;
+     background: #fff;
+     border: #b0b4b6 1px solid;
+     z-index:1002;
+     overflow: auto;
+     border-radius: 5px;
+}
+
+.textCuentanos{
+width:100%;
+height:70%;
 }

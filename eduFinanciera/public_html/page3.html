@@ -13,7 +13,9 @@
         <link href="css/cuadricula.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
         <link href="css/botones.css" rel="stylesheet" type="text/css" media="screen"/>
+     
         <script src="js/respond.min.js"></script>
+
         <script  src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
         <script type="text/javascript" charset="utf-8">
             var actual, array, correcta;
@@ -51,6 +53,9 @@
                     actual++;
                     $("#progressbar").val(((actual -1 )/array.d.length)*100);
                 } else {
+		   document.getElementById('overlay').style.display = 'block';
+            document.getElementById('mensaje').style.display = 'block';
+			          
                     alert("Terminó");
                     $("#progressbar").val(100);
                     location.href= 'page4.html';
@@ -64,7 +69,16 @@
 
     </head>
     <body>
-        <div class="cabecera" id="cabeceraAzul"></div>
+
+<div  id="overlay"></div>
+            <div  id="mensaje">
+              <div style="float:right">
+                  <a href = "javascript:void(0)" onclick = "document.getElementById('mensaje').style.display='none';document.getElementById('overlay').style.display='none'"><img src="../utiles/image/close.png"/></a>
+             </div>
+                
+            </div>
+
+    <div class="cabecera" id="cabeceraAzul"></div>
         <div class="gridContainer clearfix">
             <div id="LayoutDiv1">
                 <div class="titulo"></div>
@@ -88,4 +102,6 @@
             </div>
         </div>
     </body>
+    
+  
 </html>
