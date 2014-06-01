@@ -47,3 +47,11 @@ function calcular_edad(dia_nacim,mes_nacim,anio_nacim)
     }
   return edad;
 }
+
+function sumarPuntos(puntos){
+    
+    var puntosActuales = localStorage.getItem('puntos');
+    
+    localStorage.setItem('puntos',puntosActuales + puntos);
+    
+}

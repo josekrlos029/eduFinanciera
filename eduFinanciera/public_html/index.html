@@ -30,6 +30,7 @@
                 
                */              
 //Se obtienen los datos del Usuario
+                
                 function getUserInfo() {
                     FB.api('/me', function(response) {
                         
@@ -202,6 +203,15 @@
                 } else {
                     obtenerCategorias();
                 }
+                
+                var puntosActuales = localStorage.getItem('puntos');
+                if(puntosActuales == "" || puntosActuales==null){
+                    
+                    localStorage.setItem('puntos', 0);
+                    puntosActuales=0;
+                }
+                
+                
 
             });
             function obtenerCategorias() {
