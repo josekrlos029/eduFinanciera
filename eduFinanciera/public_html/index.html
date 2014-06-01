@@ -21,10 +21,18 @@
         <script type="text/javascript" charset="utf-8" src="PushNotification.js"></script>
         <script src="phonegap.js"></script>
         <script src="js/facebook.js"></script>
+        <script src="cdv-plugin-fb-connect.js"></script>
+	    <!-- facebook js sdk -->
+        <script src="facebook-js-sdk.js"></script>
         <script type="text/javascript" charset="utf-8">
-        //----------NOTIFICACIONES PUSH
+        
             document.addEventListener("deviceready", function() {
-
+                //_________API DE FACE
+                FB.init({ appId: "411903142258993", nativeInterface: CDV.FB, useCachedDialogs: false });
+                
+                
+                
+                //----------NOTIFICACIONES PUSH
                 var pushNotification = window.plugins.pushNotification;
 
                 if (device.platform == 'android' || device.platform == 'Android')
