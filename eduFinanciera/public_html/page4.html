@@ -17,86 +17,60 @@
         <script  src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
 
         <script type="text/javascript" charset="utf-8">
-            var actual, array, correcta;
+            
+            var actual, preguntas, preguntasGeneral, correcta;
             $(window).ready(function() {
                 var idTema = localStorage.getItem('idTema');
                 obtenerPreguntas(idTema);
             });
             
             function elegir (pos){
+                if(pos=='correcta'){
+                    alert("correcta");
+                }else{
+                    alert("incorrecta");
+                }
+                mostrarPregunta();
+                
                 
             }
 
             function obtenerPreguntas(idTema) {
-
+                var grupo = localStorage.getItem('grupo');
                 $.ajax({
                     type: "POST",
                     dataType: 'jsonp',
-                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=idTema=" + 15 + "&$format=json",
+                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=%22idTema%22=" + idTema + "AND%22idgrupodeinteres%22=" + grupo + "&$format=json",
                     data: ""
                 })
                         .done(function(msg) {
-                            array = msg;
-                            //$(".cabecera").text(msg.d[0].categoria.toUpperCase());
-                            actual = 0;
-
-                            mostrarPregunta(actual);
+                            preguntas = msg;
                             
                         });
 
             }
-            function mostrarPregunta(preg) {
-                
-                $(".preguntaEvaluacion").text(array.d[preg].terminopregunta);
-
+            
+            function obtenerPreguntasGenerales() {
+                var grupo = localStorage.getItem('grupo');
                 $.ajax({
                     type: "POST",
                     dataType: 'jsonp',
-                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$format=json",
+                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$filter=%22idgrupodeinteres%22=" + grupo + "&$format=json",
                     data: ""
                 })
                         .done(function(msg) {
+                            preguntasGeneral = msg;
+                            //$(".cabecera").text(msg.d[0].categoria.toUpperCase());
                             
-                            var resp = new Array();
-                            var pos = Math.floor((Math.random() * 4) + 1);
-                            
-                            for (var i = 1; i <= 4; i++) {
-                                if (pos === i) {
-                                    if (array.d[preg].a.length > 25) {
-                                        $("#op" + i).text(array.d[preg].a);
-                                    } else if (array.d[preg].b.length > 25) {
-                                        $("#op" + i).text(array.d[preg].b);
-                                    } else if (array.d[preg].c.length > 25) {
-                                        $("#op" + i).text(array.d[preg].c);
-                                    } else if (array.d[preg].d.length > 25) {
-                                        $("#op" + i).text(array.d[preg].d);
-                                    }
-                                    resp.push(preg);
-                                    
-                                    correcta = i;
-                                } else {
-                                    
-                                    var pv = Math.floor((Math.random() * msg.d.length) + 1);
-                                    
-                                    if (msg.d[pv].a.length > 25) {
-                                        $("#op" + i).text(msg.d[pv].a);
-                                    } else if (msg.d[pv].b.length > 25) {
-                                        $("#op" + i).text(msg.d[pv].b);
-                                    } else if (msg.d[pv].c.length > 25) {
-                                        $("#op" + i).text(msg.d[pv].c);
-                                    } else if (msg.d[pv].d.length > 25) {
-                                        $("#op" + i).text(msg.d[pv].d);
-                                    }
-                                    resp.push(pv);
-
-
-                                }
-
-                            }
-
                         });
 
+            }
+            function mostrarPregunta() {
+                alert(actual);
+                $(".preguntaEvaluacion").text(array.d[actual].terminopregunta);
 
+                
+                        actual++;
 
             }
 
@@ -118,7 +92,7 @@
                 <button class="button large gris" id="op3" onclick="elegir(4)"></button>
             </div>
             <div id="LayoutDiv3">
-                <button class="">1 de 5</button>
+                <button class="contador"></button>
             </div>		
 
         </div>

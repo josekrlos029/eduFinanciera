@@ -11,20 +11,16 @@
         <title>Selecciona tu tema de interes</title>
         <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
         <link href="css/cuadricula.css" rel="stylesheet" type="text/css">
-<link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
-<link href="css/botones.css" rel="stylesheet" type="text/css" media="screen"/>
- <script src="js/respond.min.js"></script>
-<script  src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
- <script type="text/javascript" charset="utf-8">
-     var actual, array, correcta;
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="css/botones.css" rel="stylesheet" type="text/css" media="screen"/>
+        <script src="js/respond.min.js"></script>
+        <script  src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script type="text/javascript" charset="utf-8">
+            var actual, array, correcta;
             $(window).ready(function() {
                 var idTema = localStorage.getItem('idTema');
                 obtenerPreguntas(idTema);
             });
-            
-            function elegir (pos){
-                
-            }
 
             function obtenerPreguntas(idTema) {
                 var grupo = localStorage.getItem('grupo');
@@ -41,69 +37,30 @@
                             $(".cabecera").text(array.d[0].categoria);
                             $(".titulo").text(array.d[0].tema);
                             
-                            mostrarPregunta(actual);
-                            
+                            mostrarPregunta();
+
                         });
 
             }
-            function mostrarPregunta(preg) {
+            function mostrarPregunta() {
+
+                if (actual < array.d.length) {
+                    
+                    $(".pregunta").text(array.d[actual].terminopregunta);
+                    $(".tablero").text(array.d[actual].definicion);
+                    actual++;
+                    $("#progressbar").val(((actual -1 )/array.d.length)*100);
+                } else {
+                    alert("Terminó");
+                    $("#progressbar").val(100);
+                }
                 
-                $(".preguntaEvaluacion").text(array.d[preg].terminopregunta);
-
-                $.ajax({
-                    type: "POST",
-                    dataType: 'jsonp',
-                    url: "http://servicedatosabiertoscolombia.cloudapp.net/v1/Banco_Agrario/banagrario?$format=json",
-                    data: ""
-                })
-                        .done(function(msg) {
-                            
-                            var resp = new Array();
-                            var pos = Math.floor((Math.random() * 4) + 1);
-                            
-                            for (var i = 1; i <= 4; i++) {
-                                if (pos === i) {
-                                    if (array.d[preg].a.length > 25) {
-                                        $("#op" + i).text(array.d[preg].a);
-                                    } else if (array.d[preg].b.length > 25) {
-                                        $("#op" + i).text(array.d[preg].b);
-                                    } else if (array.d[preg].c.length > 25) {
-                                        $("#op" + i).text(array.d[preg].c);
-                                    } else if (array.d[preg].d.length > 25) {
-                                        $("#op" + i).text(array.d[preg].d);
-                                    }
-                                    resp.push(preg);
-                                    
-                                    correcta = i;
-                                } else {
-                                    
-                                    var pv = Math.floor((Math.random() * msg.d.length) + 1);
-                                    
-                                    if (msg.d[pv].a.length > 25) {
-                                        $("#op" + i).text(msg.d[pv].a);
-                                    } else if (msg.d[pv].b.length > 25) {
-                                        $("#op" + i).text(msg.d[pv].b);
-                                    } else if (msg.d[pv].c.length > 25) {
-                                        $("#op" + i).text(msg.d[pv].c);
-                                    } else if (msg.d[pv].d.length > 25) {
-                                        $("#op" + i).text(msg.d[pv].d);
-                                    }
-                                    resp.push(pv);
-
-
-                                }
-
-                            }
-
-                        });
-
-
-
+                
             }
 
 
- </script>
-   
+        </script>
+
     </head>
     <body>
         <div class="cabecera" id="cabeceraAzul"></div>
@@ -115,19 +72,19 @@
                 <div id="img2"><img src="img/idea.png" /></div>
             </div>
             <div id="LayoutDiv3">
-              <div class="pregunta"></div>
-				<div class="tablero">
-                
+                <div class="pregunta"></div>
+                <div class="tablero">
+
                 </div>
             </div>
-               <div id="LayoutDiv4">
-                <button class="button large green">Siguiente</button>
-    </div>
-                
+            <div id="LayoutDiv4">
+                <button class="button large green" onclick="mostrarPregunta()">Siguiente</button>
+            </div>
 
-    <div id="LayoutDiv4">
-                <progress id="progressbar" value="10" max="100"></progress>
-                </div>
+
+            <div id="LayoutDiv4">
+                <progress id="progressbar" value="0" max="100"></progress>
+            </div>
         </div>
     </body>
 </html>
