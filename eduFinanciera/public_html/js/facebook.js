@@ -14,12 +14,11 @@ function facebook(){
 //DAtos de inicio de la APi
 window.fbAsyncInit = function() {
     FB.init({
-        appId: '690291331037841',
+        appId: '411903142258993',
         status: true, // check login status
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true  // parse XFBML
     });
-alert("ok1");
 };
 // Load the SDK asynchronously
 //carga el SDK de Face
@@ -33,8 +32,7 @@ alert("ok1");
     js.async = true;
     js.src = "//connect.facebook.net/es_ES/all.js";
     ref.parentNode.insertBefore(js, ref);
-    alert("ok2");
-
+   
 }(document));
 
 //SE especifican los datos que se necesitan del usuario (scope)
