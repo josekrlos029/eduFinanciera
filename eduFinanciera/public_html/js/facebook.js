@@ -8,7 +8,7 @@
  * Se activa cuando selecciinan la opción conectarse a Face
  */
 function facebook() {
-    alert(1):
+    alert(1);
     Login();
 }
 
