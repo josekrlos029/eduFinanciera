@@ -6,6 +6,14 @@ body{
 font-family:'Myriad Hebrew',Arial;
 background-color:#EFEFEF;	
 }
+.ico{
+ float:right;   
+ width: 30px;
+ height: 30px;
+ background-position:center;
+background-image:url(../img/r.png);
+background-repeat:no-repeat;
+}
 .cabecera{
 text-transform: uppercase;
 widht:100%;
